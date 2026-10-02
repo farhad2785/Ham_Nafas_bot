@@ -20,3 +20,15 @@ def marital_status_keyboard():
         [KeyboardButton(text="همسر فوت شده")]
     ]
     return ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True)
+
+def sex_keyboard():
+    kb = [[KeyboardButton(text="مرد"), KeyboardButton(text="زن")]]
+    return ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True)
+
+def yes_no_keyboard():
+    kb = [[KeyboardButton(text="بله"), KeyboardButton(text="خیر")]]
+    return ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True)
+
+def phone_keyboard():
+    kb = [[KeyboardButton(text="📱 ارسال شماره موبایل", request_contact=True)]]
+    return ReplyKeyboardMarkup(keyboard=kb, resize_keyboard=True)

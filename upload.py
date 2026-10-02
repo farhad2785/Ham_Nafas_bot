@@ -9,7 +9,7 @@ TOKEN = os.getenv("BALE_BOT_TOKEN")
 # شناسه عددی شما در بله
 CHAT_ID = "2106622428"
 URL = f"https://tapi.bale.ai/bot{TOKEN}/sendPhoto"
-WELCOME_IMAGE = os.path.join(os.path.dirname(__file__), "media", "welcome.jpg")
+WELCOME_IMAGE = os.path.join(os.path.dirname(__file__), "media", "welcome.png")
 
 print("در حال آپلود فایل، لطفاً صبر کنید...")
 

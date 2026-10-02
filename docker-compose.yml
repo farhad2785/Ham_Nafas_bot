@@ -1,16 +1,20 @@
 # version: '3.8'
+
 services:
   db:
     image: postgres:15-alpine
     restart: always
-    environment:
-      POSTGRES_USER: fanoos_user
-      POSTGRES_PASSWORD: fanoos_password
-      POSTGRES_DB: ham_nafas_db
+    env_file:
+      - .env
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fanoos_user -d ham_nafas_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   bot:
     build: .
@@ -19,13 +23,12 @@ services:
       - .:/app
     env_file:
       - .env
-    environment:
-      # اتصال موتور Async پایتون به دیتابیس
-      - DATABASE_URL=postgresql+asyncpg://fanoos_user:fanoos_password@db:5432/ham_nafas_db
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     # اجرای ربات با watchfiles برای محیط توسعه
-    command: watchfiles --filter python main.py
+    # command: watchfiles "python main.py"
+    command: python main.py
 
 volumes:
   postgres_data:
