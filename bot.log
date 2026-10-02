@@ -233,3 +233,9 @@
 2026-09-29 19:59:53,502 - aiogram.dispatcher - INFO - Run polling for bot @ham_nafas_bot id=174735753 - 'ham_nafas_bot'
 2026-09-29 20:00:24,106 - middlewares.logger - INFO - [MESSAGE] User: 2106622428 (داود جعفری) | Text: /start
 2026-09-29 20:00:24,484 - aiogram.event - INFO - Update id=11 is handled. Duration 378 ms by bot id=174735753
+2026-10-02 12:12:27,262 - aiogram.dispatcher - INFO - Start polling
+2026-10-02 12:12:27,329 - aiogram.dispatcher - INFO - Run polling for bot @ham_nafas_bot id=174735753 - 'ham_nafas_bot'
+2026-10-02 12:37:26,751 - aiogram.dispatcher - INFO - Start polling
+2026-10-02 12:37:26,785 - aiogram.dispatcher - INFO - Run polling for bot @ham_nafas_bot id=174735753 - 'ham_nafas_bot'
+2026-10-02 15:39:01,769 - aiogram.dispatcher - INFO - Start polling
+2026-10-02 15:39:01,806 - aiogram.dispatcher - INFO - Run polling for bot @ham_nafas_bot id=174735753 - 'ham_nafas_bot'

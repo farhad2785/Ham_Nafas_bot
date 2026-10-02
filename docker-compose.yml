@@ -1,0 +1,31 @@
+# version: '3.8'
+services:
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: fanoos_user
+      POSTGRES_PASSWORD: fanoos_password
+      POSTGRES_DB: ham_nafas_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  bot:
+    build: .
+    restart: always
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    environment:
+      # اتصال موتور Async پایتون به دیتابیس
+      - DATABASE_URL=postgresql+asyncpg://fanoos_user:fanoos_password@db:5432/ham_nafas_db
+    depends_on:
+      - db
+    # اجرای ربات با watchfiles برای محیط توسعه
+    command: watchfiles --filter python main.py
+
+volumes:
+  postgres_data:
